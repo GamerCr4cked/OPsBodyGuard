@@ -1,0 +1,106 @@
+# OPsBodyGuard Configuration
+# Version: 2.0.0
+
+# Price Settings
+price:
+  # Price per Minecraft day for bodyguard
+  per-day: 50000
+
+# Formatting Settings
+formatting:
+  # Use abbreviations for money (k, m, b, t)
+  # true: 50000 -> "50k"
+  # false: 50000 -> "50000.00"
+  use-abbreviations: true
+
+# Guard Limits
+limits:
+  # Maximum guards per player (-1 for unlimited)
+  max-guards-per-player: 5
+
+# Guard Settings
+guard:
+  # Guard health (normal iron golem has 50 hearts = 100 HP)
+  health: 100
+  # Teleport distance - if owner is this far, guard will teleport
+  teleport-distance: 15
+  # Follow distance - guard tries to stay within this distance
+  follow-distance: 10
+
+# Day Packages (shortcuts in GUI)
+day-packages:
+  5:
+    enabled: true
+  10:
+    enabled: true
+  20:
+    enabled: true
+  30:
+    enabled: true
+
+# Custom Day Settings
+custom-days:
+  # Minimum days for custom payment
+  min-days: 5
+  # Maximum days player can enter for custom payment
+  max-days: 30
+  # Discount settings (scales automatically between min and max)
+  discount:
+    # Discount at min-days (e.g., 5 days = 5%)
+    min-discount: 5
+    # Discount at max-days (e.g., 30 days = 30%)
+    max-discount: 30
+
+# Messages (supports color codes with &)
+messages:
+  prefix: "&8[&bBodyGuard&8] &r"
+  guard-purchased: "&aPurchase successful! &f$%price% &ahas been deducted."
+  guard-arrived: "&aYour bodyguard has arrived!"
+  guard-died: "&cYour guard has died!"
+  guard-cancelled: "&eYour guard has been cancelled."
+  all-guards-cancelled: "&eAll your guards have been cancelled."
+  no-money: "&cYou don't have enough money!"
+  max-guards: "&cYou have reached the maximum number of guards!"
+  enter-days: "&eEnter number of days (%min%-%max%) or type &c- &eto cancel:"
+  invalid-days: "&cInvalid number! Please enter a number between %min% and %max%."
+  payment-failed: "&cPayment failed! Your guard has been removed."
+  no-guard: "&cYou don't have any guards!"
+  custom-attack-enter: "&eEnter the exact username of player to attack or type &c- &eto cancel:"
+  custom-attack-set: "&aGuard will now attack: &e%player%"
+  cannot-target-self: "&cYou cannot target yourself!"
+  player-not-found: "&cPlayer not found!"
+  mode-changed: "&aGuard mode changed to: &e%mode%"
+  # Order mode messages
+  order-stopped: "&eGuard stopped attacking."
+  order-attack: "&aGuard resuming attack."
+  order-toggled: "&eOrder toggle: &f%status%"
+  # Payment messages
+  daily-payment: "&eDaily guard payment: &f$%price%"
+  guard-expired: "&cYour guard's contract has expired!"
+  days-warning: "&eYour guard has &f%days% &eMC days remaining!"
+
+# GUI Titles
+gui:
+  main-title: "&8&lBodyGuard Shop"
+  payment-type-title: "&8&lSelect Payment Type"
+  per-day-confirm-title: "&8&lConfirm Per-Day Payment"
+  custom-days-title: "&8&lSelect Days"
+  custom-confirm-title: "&8&lConfirm Payment"
+  guard-control-title: "&8&lGuard Control"
+  all-guards-title: "&8&lAll Guards Control"
+
+# GUI Items (Material names)
+gui-items:
+  guard-icon: IRON_GOLEM_SPAWN_EGG
+  per-day-icon: CLOCK
+  custom-day-icon: WRITABLE_BOOK
+  confirm-icon: LIME_WOOL
+  cancel-icon: RED_WOOL
+  back-icon: ARROW
+  # Mode icons
+  aggressive-icon: DIAMOND_SWORD
+  neutral-icon: LEAD
+  passive-icon: WHEAT
+  hostile-icon: ROTTEN_FLESH
+  order-icon: COMPARATOR
+  custom-attack-icon: PLAYER_HEAD

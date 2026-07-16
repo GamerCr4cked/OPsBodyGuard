@@ -1,0 +1,42 @@
+package com.opsbodyguard.commands;
+
+import com.opsbodyguard.OPsBodyGuard;
+import com.opsbodyguard.utils.MessageUtil;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class BuyGuardCommand implements CommandExecutor {
+
+    private final OPsBodyGuard plugin;
+
+    public BuyGuardCommand(OPsBodyGuard plugin) {
+        this.plugin = plugin;
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage("This command can only be used by players!");
+            return true;
+        }
+
+        // Check permission
+        if (!player.hasPermission("opsbodyguard.default")) {
+            MessageUtil.send(player, "&cYou don't have permission to use this command!");
+            return true;
+        }
+
+        // Check if player can have more guards
+        if (!plugin.getGuardManager().canHaveMoreGuards(player.getUniqueId())) {
+            MessageUtil.send(player, plugin.getConfig().getString("messages.max-guards"));
+            return true;
+        }
+
+        // Open main GUI
+        plugin.getGUIManager().openMainGUI(player);
+
+        return true;
+    }
+}

@@ -1,0 +1,51 @@
+name: OPsBodyGuard
+version: STABLE
+main: com.opsbodyguard.OPsBodyGuard
+api-version: "1.21"
+description: Iron Golem bodyguard system with Vault economy support and configurable guard behavior
+author: ITzGamerCracked_
+
+depend:
+  - Vault
+
+commands:
+  guardbuy:
+    description: Open the bodyguard shop
+    usage: /guardbuy
+    aliases: [gb]
+    permission: opsbodyguard.default
+  guardcontrol:
+    description: Open guard control GUI
+    usage: /guardcontrol
+    aliases: [gc]
+    permission: opsbodyguard.default
+  guardall:
+    description: Open all guards control GUI
+    usage: /guardall
+    aliases: [ga]
+    permission: opsbodyguard.default
+  guardcancel:
+    description: Remove all your guards
+    usage: /guardcancel
+    aliases: [gx]
+    permission: opsbodyguard.default
+  guardhelp:
+    description: Show OPsBodyGuard help guide
+    usage: /guardhelp
+    aliases: [gh]
+    permission: opsbodyguard.default
+  guardreload:
+    description: Reload OPsBodyGuard config
+    usage: /guardreload
+    aliases: [gr]
+    permission: opsbodyguard.admin
+
+permissions:
+  opsbodyguard.default:
+    description: Allows player to use bodyguard commands
+    default: true
+  opsbodyguard.admin:
+    description: Admin permissions for OPsBodyGuard
+    default: op
+    children:
+      opsbodyguard.default: true
